@@ -1,0 +1,285 @@
+﻿function GetErr(ln, t){
+	if(ln=='bg'){if(t==1){return 'Извинете. Няма данни до момента.'}else{return 'Не може да се свърже с базата данни. Това може да бъде причинено от синхронизация на базата данни. Моля, опитайте отново по-късно.'}}
+	else if(ln=='cn'){if(t==1){return '抱歉，找不到相关数据。'}else{return '抱歉，数据库同步中，请稍后来访，感谢。'}}
+	else if(ln=='de'){if(t==1){return 'Es tut uns leid. Keine Daten so weit.'}else{return 'Die Datenbank ist nicht erreichbar. Dies kann durch die Datenbanksynchronisation verursacht werden. Bitte versuchen Sie es später noch einmal.'}}
+	else if(ln=='es'){if(t==1){return 'Lo siento. No hay datos hasta el momento.'}else{return 'No se puede conectar a la base de datos. Esto puede ser causado por la sincronización de base de datos. Por favor, inténtelo de nuevo más tarde.'}}
+	else if(ln=='fa'){if(t==1){return 'متاسف. هیچ داده تا کنون.'}else{return 'امکان اتصال به پایگاه داده است. این ممکن است توسط هماهنگ سازی پایگاه داده ایجاد می شود. لطفا بعدا دوباره امتحان کنید.'}}
+	else if(ln=='fr'){if(t==1){return 'Pardon. Aucune donnée jusqu\'à présent.'}else{return 'Impossible de se connecter à la base de donnée. Cela peut être provoqué par une synchronisation de bases de données. Veuillez réessayer plus tard.'}}
+	else if(ln=='gr'){if(t==1){return 'Συγνώμη. Δεν υπάρχουν δεδομένα μέχρι στιγμής.'}else{return 'Δεν είναι δυνατή η σύνδεση με τη βάση δεδομένων. Αυτό μπορεί να προκληθεί από το συγχρονισμό δεδομένων. Παρακαλώ δοκιμάστε ξανά αργότερα.'}}
+	else if(ln=='hu'){if(t==1){return 'Sajnálom. Nincs adat eddig.'}else{return 'Nem lehet csatlakozni az adatbázishoz. Ennek oka lehet az adatbázis szinkronizálás. Kérlek, próbáld újra később.'}}
+	else if(ln=='it'){if(t==1){return 'Scusate. Nessun dato finora.'}else{return 'Impossibile connettersi al database. Ciò può essere causato da sincronizzazione del database. Per favore riprova più tardi.'}}
+	else if(ln=='jp'){if(t==1){return 'ごめんなさい。データなしこれまでのところ。'}else{return 'データベースに接続できません。これは、データベースの同期化によって引き起こされ得ます。後ほどおかけ直しください。'}}
+	else if(ln=='kr'){if(t==1){return '죄송합니다. 데이터 없음 지금까지.'}else{return '데이터베이스에 연결할 수 없습니다. 이는 데이터베이스 동기화로 인해 발생할 수 있습니다. 나중에 다시 시도 해주십시오.'}}
+	else if(ln=='nl'){if(t==1){return 'Sorry. Nu toe geen gegevens.'}else{return 'Kan geen verbinding maken met de database. Dit kan worden veroorzaakt door database synchronisatie. Probeer het later opnieuw.'}}
+	else if(ln=='pl'){if(t==1){return 'Przepraszam. Brak danych do tej pory.'}else{return 'Nie można połączyć się z bazą danych. Może to być spowodowane przez synchronizacji bazy danych. Spróbuj ponownie później.'}}
+	else if(ln=='pt'){if(t==1){return 'Desculpa. Não existem dados até agora.'}else{return 'Não foi possível conectar ao banco de dados. Isto pode ser causado pela base de dados de sincronização. Por favor, tente novamente mais tarde.'}}
+	else if(ln=='ro'){if(t==1){return 'Scuze. Nu există date până în prezent.'}else{return 'Nu se poate conecta la baza de date. Acest lucru poate fi cauzat de sincronizare baze de date. Vă rugăm să încercați din nou mai târziu.'}}
+	else if(ln=='ru'){if(t==1){return 'Сожалею. Нет данных до сих пор.'}else{return 'Не удалось подключиться к базе данных. Это может быть вызвано синхронизации баз данных. Пожалуйста, повторите попытку позже.'}}
+	else if(ln=='th'){if(t==1){return 'ขอโทษ ไม่มีข้อมูลเพื่อให้ห่างไกล'}else{return 'ไม่สามารถเชื่อมต่อกับฐานข้อมูล ซึ่งอาจจะเกิดจากการประสานข้อมูล กรุณาลองใหม่อีกครั้งในภายหลัง.'}}
+	else if(ln=='tw'){if(t==1){return '抱歉，找不到相關資料。'}else{return '抱歉，資料庫同步中，請稍後來訪，感謝。'}}
+	else if(ln=='vn'){if(t==1){return 'Lấy làm tiếc. Không có dữ liệu cho đến nay.'}else{return 'Không thể kết nối với cơ sở dữ liệu. Điều này có thể được gây ra bởi việc đồng bộ cơ sở dữ liệu. Vui lòng thử lại sau.'}}
+	else{if(t==1){return 'Sorry. No data so far.'}else{return 'Unable to connect to the database. This may be caused by database synchronization. Please try again later.'}}
+}
+
+function GetDownload(Model, b, ln){
+	if(ln=='cn'){
+		$.ajax({url: "/mb/productDL.cn.asp?Model="+encodeURIComponent(Model)+'&b='+b, type:"POST", dataType:'text', success: function(msg){$("#Download").html(msg);},error:function(xhr, ajaxOptions, thrownError){alert(xhr.status); alert(thrownError);}});
+	}else{
+		$.ajax({url: "/mb/productDL.asp?Model="+encodeURIComponent(Model)+"&ln="+ln+'&b='+b, type:"POST", dataType:'text', success: function(msg){$("#Download").html(msg);},error:function(xhr, ajaxOptions, thrownError){alert(xhr.status); alert(thrownError);}});
+	}
+}
+
+function GetModelSL(Model, ln){
+		$.ajax({url: "/mb/spec/MotherboardSL.asp?Model="+encodeURIComponent(Model)+"&ln="+ln, type:"POST", dataType:'text', success: function(msg){$("#MotherboardSL").html(msg);},error:function(xhr, ajaxOptions, thrownError){alert(xhr.status); alert(thrownError);}});
+}
+
+function GetBIOS(Model, b, ln){
+var path;if(ln=='cn'){path="/mb/productBIOS.cn.asp?Model="+encodeURIComponent(Model)}else{path="/mb/productBIOS.asp?Model="+encodeURIComponent(Model)+"&ln="+ln};
+$.ajax({url: path, type:"POST", dataType:'text', success: function(msg){$("#BIOS").html(msg);},error:function(xhr, ajaxOptions, thrownError){alert(xhr.status); alert(thrownError);}});};
+
+function GetManual(Model, ln){
+	$.getJSON('/mb/productGet.asp?cat=Manual&Model='+encodeURIComponent(Model), function(data){
+		var title; if(ln=='bg'){title='Ръководство'; pdf='Форматът на нашите документи е PDF. Ако нямате инсталиран Adobe Acrobat Reader, моля, свалете го от <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Описание'; lang='Език'; dol='Свали от'}
+		else if(ln=='cn'){title='手册下载'; pdf='档案格式为 PDF，如果您没有安装 Adobe Acrobat Reader，请至 <a href="http://www.adobe.com/" target=_blank>Adobe</a>下载。'; desc='说明'; lang='语系'; dol='下载'}
+		else if(ln=='de'){title='Handbuch'; pdf='Unsere Dokumente liegen im PDF-Format vor. Falls die den Adobe Acrobat Reader nicht installiert haben, laden Sie diesen bitte bei <a href="http://www.adobe.com/" target=_blank>Adobe</a> herunter.'; desc='Beschreibung'; lang='Spreche'; dol='Downloaden von'}
+		else if(ln=='es'){title='Manual'; pdf='El formato de nuestros documentos está en archivos del pdf. Si no has instalado Adobe Acrobat Reader, por favor lo consigue desde el <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Descripción'; lang='Lengua'; dol='Descargar'}
+		else if(ln=='fa'){title='دفترچه راهنما'; pdf='فرمت اسناد ما بصورت PDF می باشد. اگر نرم افزار Adobe Acrobat Reader را نصب نکرده اید، آن را از سایت <a href="http://www.adobe.com/" target=_blank>Adobe</a> دریافت کنید.'; desc='توضیحات'; lang='زبان'; dol='دریافت فایل'}
+		else if(ln=='fr'){title='Manual'; pdf='Le format de nos documents est PDF. Si vous n’avez pas installé Adobe Acrobat Reader, veuillez le télécharger sur <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Description'; lang='Langue'; dol='Télécharger depuis'}
+		else if(ln=='gr'){title='Εγχειρίδιο'; pdf='Η μορφή των εγγράφων μας είναι σε αρχεία PDF. Εάν δεν έχετε ήδη εγκαταστήσει τον Adobe Acrobat Reader, παρακαλώ λάβετέ τον από <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Περιγραφή'; lang='Γλώσσα'; dol='Λήψη από'}
+		else if(ln=='hu'){title='Kezelési útmutató'; pdf='Dokumentumaink PDF formátumban érhetőek el. Amennyiben nincs feltelepítve Adobe Acrobat Reader számítógépére, kérjük töltse azt le az <a href="http://www.adobe.com/" target=_blank>Adobe</a> weboldaláról.'; desc='Leírás'; lang='Nyelv'; dol='Letöltési formátum'}
+		else if(ln=='it'){title='Manuale'; pdf='Il formato dei nostri documenti è il PDF. Se non avete installato Adobe Acrobat Reader, si prega di farlo dal sito di <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Descrizione'; lang='Lingua'; dol='Scarica da'}
+		else if(ln=='jp'){title='マニュアルのダウンロード'; pdf='ファイル形式はPDFファイルです。Adobe Acrobat Readerをインストールしていない場合は、<a href="http://www.adobe.com/" target=_blank>Adobe 公式ウェブサイト</a>からダウンロードしてください。'; desc='説明'; lang='言語'; dol='ダウンロード'}
+		else if(ln=='kr'){title='설명서'; pdf='PDF 파일 형식으로 제공됩니다. 만약 시스템에 Adobe Acrobat Reader가 설치되어 있지 않다면 <a href="http://www.adobe.com/" target=_blank>Adobe</a> 에서 다운로드 하십시오.'; desc='설명'; lang='언어'; dol='다운로드 위치'}
+		else if(ln=='nl'){title='Handleiding'; pdf='Onze documentatie is allemaal gemaakt in het PDF formaat. Als u geen PDF lezer heeft kunt u deze hier downloaden <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Omschrijving'; lang='Taal'; dol='Download Vanaf'}
+		else if(ln=='pl'){title='Instrukcje'; pdf='Dokumenty zapisane są w formacie PDF. Jeśli nie masz zainstalowanego programu Adobe Acrobat Reader, pobierz go bezpłatnie ze strony <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Opis'; lang='Język'; dol='Pobierz z'}
+		else if(ln=='pt'){title='Manual'; pdf='O formato de nossos documentos é PDF. Caso você não tenha o Adobe Acrobat Reader instalado, por favor obtenha-o aqui <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Descrição'; lang='Idioma'; dol='Baixar De'}
+		else if(ln=='ro'){title='Manual'; pdf='Documentele noastre sunt în format *.pdf. Dacă nu ai Adobe Reader, descarcă-l de pe site-ul oficial <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Descriere'; lang='Limba'; dol='Descarca de pe'}
+		else if(ln=='ru'){title='Справочник'; pdf='Наши руководства пользователя распространяются в формате PDF. Если у вас не установлена программа Adobe Acrobat Reader, вам следует скачать ее с сайта <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Описание'; lang='Язык'; dol='Ссылка'}
+		else if(ln=='th'){title='คู่มือ'; pdf='รูปแบบของเอกสารของเราอยู่ในไฟล์ PDF หากท่านไม่ได้ติดตั้งโปรแกรม Adobe Acrobat Reader กรุณาขอรับจาก <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='คำอธิบาย'; lang='ภาษา'; dol='ดาวน์โหลด'}
+		else if(ln=='tw'){title='手冊下載'; pdf='檔案格式為 PDF，如果您沒有安裝 Adobe Acrobat Reader，請至 <a href="http://www.adobe.com/" target=_blank>Adobe</a>下載。'; desc='說明'; lang='語系'; dol='下載'}
+		else if(ln=='vn'){title='Hướng dẫn sử dụng'; pdf='Định dạng của tập tin nằ mở dạng PDF. Nếu bạn chưa cài đặt Adobe Acrobat Reader. Tải về từ <a href="http://www.adobe.com/" target=_blank>Adobe</a>.'; desc='Sự miêu tả'; lang='ngôn ngữ'; dol='Tải về'}
+		else{title='Manual'; pdf='The format of our documents are in PDF files. If you have not installed Adobe Acrobat Reader, please get it from <a href="http://www.adobe.com/" target=_blank>Adobe</a>.';desc='Description'; lang='Language'; dol='Download'}
+		if(data.status=='ok'){
+			var total=data.contents.length, tbody='';
+			if(ln=='cn'){dlcdn='全球';dleu='欧洲';dlcn='中国';}else{dlcdn='Global';dleu='Europe';dlcn='China';}
+			for(var i=0; i < total; i++) { itm=data.contents[i].item; path=data.contents[i].path; lang2=data.contents[i].lang; if(ln=='fa'){lang2=lang2.replace('English', 'انگلیسی').replace('Multi-Language', 'چند زبان')}; tbody+='<tr align=center><td align=left>'+itm+'</td><td>'+lang2+'</td><td width=68><a href="http://asrock.pc.cdn.bitgravity.com/'+path+'" target="_blank" onclick="ClickRate(\'Manual\', \'n/a\', \'TW\', \''+encodeURIComponent(path)+'\');"><img src="/images/dl-blue.gif"> '+dlcdn+'</a><td width=68><a href="ftp://asrock.cn/'+path+'" target="_blank" onclick="ClickRate(\'Manual\', \'n/a\', \'CN\', \''+encodeURIComponent(path)+'\');"><img src="/images/dl-yellow.gif"> '+dlcn+'</a></td>'};
+			$('#Manual').html('<h4>'+title+'</h4><div class="Notice" style="min-height:32px; line-height:16px;"><a href="http://www.adobe.com/products/acrobat/readstep2.html" target=_blank><img src="/images/getAdobeReader.gif" alt="Get Adobe Reader" align=left style="margin-right:2px;"></a>'+pdf+'</div><table><thead><tr><th>'+desc+'</th><th>'+lang+'</th><th colspan=2>'+dol+'</th></thead><tbody>'+tbody+'</tbody></table>').fadeIn();
+		}else{
+			$("#Manual").html('<h4>'+title+'</h4><div class=Notice>'+GetErr(ln, 1)+'</div>').fadeIn();
+		}
+	});
+};
+
+function GetCPU(Model, ln){
+	$.getJSON('/mb/productGet.asp?cat=CPU&ln='+ln+'&Model='+encodeURIComponent(Model), function(data){
+		var title, skt, fay, mdl, nur, pwr, cre, fqy, che, crev, sbios, gbios; if(ln=='bg'){title='Списък с поддържаните процесори'; skt='Цокъл'; fay='Фамилия'; mdl='Модел'; nur='Номер'; pwr='Енергия'; cre='Ядро'; fqy='Честота'; che='Кеш'; crev='Ревизия на процесор'; sbios='От BIOS'; gbios='Ако трябва да актуализирате BIOS, моля щракнете <a onclick="window.location.hash=\'BIOS\';">тук</a>.'}
+		else if(ln=='cn'){title='处理器支持列表'; skt='插脚'; fay='系列'; mdl='型号'; nur='编号'; pwr='功率'; cre='核心'; fqy='频率'; che='缓存'; crev='CPU 版本'; sbios='支持的 BIOS'; gbios='如需更新 BIOS, 请造访 <a onclick="window.location.hash=\'BIOS\';">此处</a>。'}
+		else if(ln=='de'){title='CPU Support Liste'; skt='Sockel'; fay='Familie'; mdl='Modell'; nur='Nummer'; pwr='TDP'; cre='Kern'; fqy='Frequenz'; che='Cache'; crev='CPU-Rev.'; sbios='Ab BIOS'; gbios='Si necesita a renovar BIOS, por favor visite <a onclick="window.location.hash=\'BIOS\';">aquí</a>.'}
+		else if(ln=='es'){title='Lista de Soporte de CPU'; skt='Socket'; fay='Familia'; mdl='Modelo'; nur='Número'; pwr='Alimentación'; cre='Núcleo'; fqy='Frecuencia'; che='Caché'; crev='CPU Rev.'; sbios='Desde BIOS'; gbios='Si necesita a renovar BIOS, por favor visite <a onclick="window.location.hash=\'BIOS\';">aquí</a>.'}
+		else if(ln=='fa'){title='لیست پشتیبانی از پردازنده ها'; skt='پریز'; fay='خانواده'; mdl='مدل'; nur='عدد'; pwr='قدرت'; cre='هسته'; fqy='فرکانس'; che='نهانگاه'; crev='نسخه CPU'; sbios='از آنجا که BIOS'; gbios='اگر شما نیاز به به روز رسانی BIOS، لطفا <a onclick="window.location.hash=\'BIOS\';">اینجا</a> کلیک کنید.'}
+		else if(ln=='fr'){title='Compatibilité CPU'; skt='Socket'; fay='Famille'; mdl='Modèle'; nur='Référence'; pwr='Consommation'; cre='Coeur'; fqy='Fréquence'; che='Cache'; crev='Révision du CPU'; sbios='Depuis BIOS'; gbios='Si vous devez mettre à jour BIOS, veuillez consulter <a onclick="window.location.hash=\'BIOS\';">ici</a>.'}
+		else if(ln=='gr'){title='Λίστα επεξεργαστών που υποστηρίζουν'; skt='Υποδοχή'; fay='Οικογένεια'; mdl='Μοντέλο'; nur='Αριθμός'; pwr='Ισχύς'; cre='Πυρήνας'; fqy='Συχνότητα'; che='Κρυφή Μνήμη'; crev='CPU Rev.'; sbios='Μέχρι BIOS'; gbios='Αν επιθυμείτε να ενημερώσετε το BIOS, παρακαλώ κάντε κλικ <a onclick="window.location.hash=\'BIOS\';">εδώ</a>.'}
+		else if(ln=='hu'){title='Processzortámogatási lista'; skt='Foglalat'; fay='Család'; mdl='Modell'; nur='Szám'; pwr='Teljesítmény'; cre='Mag'; fqy='Frekvencia'; che='Cache'; crev='CPU Rev.'; sbios='Since BIOS'; gbios='Ha BIOS-t kíván frissíteni kattintson <a onclick="window.location.hash=\'BIOS\';">ide</a>.'}
+		else if(ln=='it'){title='Lista di Supporto CPU'; skt='Socket'; fay='Famiglia'; mdl='Modello'; nur='Numero'; pwr='Alimentazione'; cre='Core'; fqy='Frequenza'; che='Cache'; crev='Riv. CPU'; sbios='Ultimo BIOS'; gbios='Se avete bisogno di aggiornare il BIOS, si prega di cliccare <a onclick="window.location.hash=\'BIOS\';">qui</a>.'}
+		else if(ln=='jp'){title='CPU サポート一覧表'; skt='ソケット'; fay='ファミリー'; mdl='型番'; nur='番号'; pwr='電力消費'; cre='コア'; fqy='周波数'; che='キャッシュ'; crev='CPU リビジョン'; sbios='対応する BIOS バージョン'; gbios='BIOS を更新する必要がある場合は、<a onclick="window.location.hash=\'BIOS\';">こちらを</a>クリックしてください。'}
+		else if(ln=='kr'){title='CPU 지원 목록'; skt='소켓'; fay='패밀리'; mdl='모델'; nur='번호'; pwr='소비전력'; cre='코어'; fqy='동작 클럭'; che='캐시'; crev='CPU 리비젼'; sbios='지원 BIOS'; gbios='만약 BIOS 를 업데이트 하여야 하는 경우에는, <a onclick="window.location.hash=\'BIOS\';">여기를 클릭하십시오</a>.'}
+		else if(ln=='nl'){title='CPU ondersteuninglijst'; skt='Socket'; fay='Familie'; mdl='Model'; nur='Nummer'; pwr='Power'; cre='Kern'; fqy='Frequentie'; che='Cache'; crev='CPU Rev.'; sbios='Vanaf BIOS'; gbios='Als u de BIOS dient te updaten klinkt u dan <a onclick="window.location.hash=\'BIOS\';">hier</a>.'}
+		else if(ln=='pl'){title='Lista obsługiwanych CPU'; skt='Socket'; fay='Rodzina'; mdl='Model'; nur='Numer'; pwr='Moc'; cre='Liczba rdzeni'; fqy='Częstotliwość'; che='Cache'; crev='Rewizja CPU'; sbios='Wersja BIOS'; gbios='Jeżeli musisz zaktualizować BIOS kliknij <a onclick="window.location.hash=\'BIOS\';">tutaj</a>.'}
+		else if(ln=='pt'){title='Lista de CPUs Suportadas'; skt='Socket'; fay='Família'; mdl='Modelo'; nur='Npumero'; pwr='Alimentação'; cre='Núcleo'; fqy='Frequência'; che='Cache'; crev='Rev. da CPU'; sbios='Desde a BIOS'; gbios='Se você precisar atualizar sua BIOS, por favor clique <a onclick="window.location.hash=\'BIOS\';">aqui</a>.'}
+		else if(ln=='ro'){title='Lista procesoarelor suportate'; skt='Soquete'; fay='Familie'; mdl='Model'; nur='Numar'; pwr='Consum'; cre='Nuclee'; fqy='Frecvente'; che='Cache'; crev='CPU Rev.'; sbios='De cand BIOS'; gbios='Dacă este necesară actualizarea BIOS-ului, fă click <a onclick="window.location.hash=\'BIOS\';">aici</a>.'}
+		else if(ln=='ru'){title='Список поддерживаемых процессоров'; skt='Разъем'; fay='Семейство'; mdl='Модель'; nur='Номер'; pwr='Сила'; cre='Ядро'; fqy='Тактовая частота'; che='Кэш'; crev='Ревизия ядра'; sbios='о БИОСе'; gbios='Если вам нужно произвести обновление BIOS,пожалуйста, посетите <a onclick="window.location.hash=\'BIOS\';">здecь</a>.'}
+		else if(ln=='th'){title='รายการ CPU ที่รองรับ'; skt='ซ็อกเก็ต'; fay='ครอบครัว'; mdl='โมเดล'; nur='ซีพียูโมเดล'; pwr='อำนาจ'; cre='คอร์'; fqy='ความถี่'; che='ขุมทรัพย์'; crev='CPU การหมุนรอบ'; sbios='ตั้งแต่ BIOS เวอร์ชั่น'; gbios='หากต้องการอัพเดทไบออส <a onclick="window.location.hash=\'BIOS\';">กรุณาคลิ๊ก</a>.'}
+		else if(ln=='tw'){title='處理器支援列表'; skt='Socket'; fay='系列'; mdl='型號'; nur='編號'; pwr='功耗'; cre='核心'; fqy='頻率'; che='快取'; crev='CPU 版本'; sbios='支援的 BIOS'; gbios='如需更新 BIOS, 請造訪 <a onclick="window.location.hash=\'BIOS\';">此處</a>。'}
+		else if(ln=='vn'){title='Danh sách hỗ trợ CPU'; skt='Ổ cắm'; fay='gia đình'; mdl='Mô hình'; nur='Con số'; pwr='Quyền lực'; cre='Cốt lõi'; fqy='Tần số'; che='chổ dấu'; crev='phiên bản CPU'; sbios='Kể từ BIOS'; gbios='Nếu bạn cần cập nhật BIOS, xin vui lòng bấm vào <a onclick="window.location.hash=\'BIOS\';">đây</a>.'}
+		else{title='CPU Support List'; skt='Socket'; fay='Family'; mdl='Model'; nur='Number'; pwr='Power'; cre='Core'; fqy='Frequency'; che='Cache'; crev='CPU Rev.'; sbios='Since BIOS'; gbios='If you need to update BIOS, please click <a onclick="window.location.hash=\'BIOS\';">here</a>.'}
+		if(data.status=='ok'){
+			var socket=data.socket, CPUBoardAM2=CPUBoard939=CPUBoard754=false;
+			if(socket=='FM1' || socket=='FM2' || socket=='FM2+' || socket=='AM1' || socket=='AM4' || socket=='TR4'){
+				field=10; thead='<thead><tr><th data-sort="string">'+skt+'</th><th data-sort="string">'+fay+'</th><th data-sort="string">'+mdl+'</th><th data-sort="int">'+pwr+'</th><th data-sort="string">'+cre+'</th><th data-sort="string">'+fqy+'</th><th>'+che+'</th><th>'+crev+'</th><th>'+sbios+'</th></tr></thead>';
+			}else if(socket=='AM3+' || socket=='AM3' || socket=='AM2+' || socket=='AM2'){
+				field=12; thead='<thead><tr><th data-sort="string">'+skt+'</th><th data-sort="string">'+fay+'</th><th data-sort="string">'+mdl+'</th><th data-sort="int">'+pwr+'</th><th data-sort="string">'+cre+'</th><th data-sort="string">'+fqy+'</th><th>FSB</th><th>L2 '+che+'</th><th>L3 '+cre+'</th><th>'+crev+'</th><th>'+sbios+'</th></tr></thead>';
+			}else if(socket=='939' || socket=='754' || socket=='462'){
+				field=9; thead='<thead><tr><th data-sort="string">'+skt+'</th><th data-sort="string">'+fay+'</th><th data-sort="string">'+mdl+'</th><th data-sort="int">'+fqy+'</th><th>FSB</th><th>'+che+'</th><th>'+crev+'</th><th>'+sbios+'</th></tr></thead>';
+			}else if(socket=='1150' || socket=='1151'){
+				field=9; thead='<thead><tr><th data-sort="string">'+skt+'</th><th data-sort="string">'+fay+'</th><th data-sort="string">'+mdl+'</th><th data-sort="string">'+cre+'</th><th data-sort="int">'+fqy+'</th><th>'+che+'</th><th data-sort="int">'+pwr+'</th><th>'+sbios+'</th></tr></thead>';
+			}else if(socket=='478'){
+				field=9; thead='<thead><tr><th data-sort="string">'+skt+'</th><th data-sort="string">'+fay+'</th><th data-sort="string">'+nur+'</th><th data-sort="string">'+cre+'</th><th data-sort="int">'+fqy+'</th><th>FSB</th><th>'+che+'</th><th>'+sbios+'</th></tr></thead>';
+			}else if(socket=='2066' || socket=='1151' || socket=='2011-3'){
+				field=9; thead='<thead><tr><th data-sort="string">'+skt+'</th><th data-sort="string">'+fay+'</th><th data-sort="string">'+nur+'</th><th data-sort="string">'+cre+'</th><th data-sort="string">'+fqy+'</th><th>'+che+'</th><th data-sort="int">'+pwr+'</th><th>'+sbios+'</th></tr></thead>';
+			}else{
+				field=10; thead='<thead><tr><th data-sort="string">'+skt+'</th><th data-sort="string">'+fay+'</th><th data-sort="string">'+nur+'</th><th data-sort="string">'+cre+'</th><th data-sort="string">'+fqy+'</th><th>FSB</th><th>'+che+'</th><th data-sort="int">'+pwr+'</th><th>'+sbios+'</th></tr></thead>';
+			}
+
+			var total=data.contents.length / field, tbody=remark='';
+			for(var i=0; i < total; i++) {
+				tbody+='<tr align=center>';
+				for(var j=0; j<field-1; j++){
+					tbody+='<td>'+data.contents[i*field+j];
+					if(j==0 && data.contents[i*field+field-1]!=''){ tbody+='<font color=red>'+data.contents[i*field+field-1]+'</font>';};
+					if(j==0){
+						if(data.contents[i*field]=='AM2'){if('K8Upgrade-VM800|K8Upgrade-1689|K8Upgrade-NF3|K8SLI-eSATA2|939Dual-SATA2|939SLI-eSATA2|939SLI32-eSATA2|939Dual-VSTA'.search(data.model)!=-1){CPUBoardAM2=true;tbody+='<font color=red>&#10045;</font>';};};
+						if(data.contents[i*field]=='939'){if('K8Upgrade-VM800|K8Upgrade-760GX|K8Upgrade-1689|K8Upgrade-NF3|K8Upgrade-PCIE|K8SLI-eSATA2'.search(data.model)!=-1){CPUBoard939=true;tbody+='<font color=red>&#10070;</font>';};};
+						if(data.contents[i*field]=='754'){if('K7Upgrade-600|K7Upgrade-880'.search(data.model)!=-1){CPUBoard754=true;tbody+='<font color=red>&#10017;</font>';};};
+					}
+					tbody+='</td>';
+				};
+			};
+			if(data.remark!=''){remark=data.remark.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br>$2')};
+			if(CPUBoardAM2){if(remark!=''){remark+='<br>';}; remark+='<font color=red>&#10045;</font> AM2 CPU is required to be used on ASRock AM2CPU Board together.'};
+			if(CPUBoard939){if(remark!=''){remark+='<br>';}; remark+='<font color=red>&#10070;</font> 939 CPU is required to be used on ASRock 939CPU Board together.'};
+			if(CPUBoard754){if(remark!=''){remark+='<br>';}; remark+='<font color=red>&#10017;</font> 754 CPU is required to be used on ASRock 754Bridge Card together.'};
+			if(remark!=''){remark='<div class=Notice>'+remark+'</div>';};
+			$('#CPU').html('<h4>'+title+'</h4>'+remark+'<table>'+thead+'<tbody>'+tbody+'</tbody></table><p>'+gbios+'</p>').fadeIn();
+			var table = $('table').stupidtable(); table.on('aftertablesort', function (event, data) { var th = $(this).find("th"); th.find(".arrow").remove(); var dir = $.fn.stupidtable.dir; var arrow = data.direction === dir.ASC ? "&uarr;" : "&darr;"; th.eq(data.column).append('<span class="arrow">' + arrow +'</span>'); });
+		}else{
+			if(data.message=='Support not found!'){
+				$("#CPU").html('<h4>'+title+'</h4><div class=Notice>'+GetErr(ln, 1)+'</div>').fadeIn();
+			}else{
+				$("#CPU").html('<h4>'+title+'</h4><div class=Notice>'+GetErr(ln, 2)+'</div>').fadeIn();
+			}
+		}
+	});
+};
+
+function GetMemory(Model, ln){
+	$.getJSON('/mb/productGet.asp?cat=Memory&Model='+encodeURIComponent(Model), function(data){
+		var title, typ, spd, siz, mul, ptn, scn, dcn, tcn, qcn, ovc; if(ln=='bg'){vendor=['Продавач']; title='Списък с поддържани Памет'; typ='Тип'; spd='Скорост'; siz='Размер'; mul='Модул'; chp='Чип'; ptn='Парт. Номер'; scn='Едноканална'; dcn='Двуканална'; tcn='Триканална'; qcn='Четириканална'; ovc='Овърклок'}
+		else if(ln=='cn'){vendor=['供应商']; title='內存支持列表'; typ='类型'; spd='速度'; siz='大小'; mul='模块'; chp='芯片'; ptn='产品编号'; scn='单通道'; dcn='双通道'; tcn='三通道'; qcn='四通道'; ovc='超频'}
+		else if(ln=='de'){vendor=['Anbieter']; title='Speicher Support Liste'; typ='Typ'; spd='Takt'; siz='Größe'; mul='Modul'; chp='Chip'; ptn='P/N'; scn='Single Channel'; dcn='Dual Channel'; tcn='Triple Channel'; qcn='Quad Channel'; ovc='OC'}
+		else if(ln=='es'){vendor=['Fabricante']; title='Lista de Soporte de Memoria'; typ='Tipo'; spd='Velocidad'; siz='Tamaño'; mul='Módulo'; chp='Chip'; ptn='Número Serie'; scn='Single Canal'; dcn='Dual Canal'; tcn='Triple Canal'; qcn='Cuádruple Canal'; ovc='OC'}
+		else if(ln=='fr'){vendor=['Fabricant']; title='Compatibilité Mémoire'; typ='Type'; spd='Vitesse'; siz='Taille'; mul='Module'; chp='Chip'; ptn='N° de référence'; scn='Single Channel'; dcn='Dual Channel'; tcn='Triple Channel'; qcn='Quad Channel'; ovc='OC'}
+		else if(ln=='gr'){vendor=['Πωλητής']; title='Λίστα αποδεκτών πωλητών μνήμης'; typ='Τύπος'; spd='Ταχύτητα'; siz='Μέγεθος'; mul='Λειτουργική Μονάδα'; chp='Τσιπ'; ptn='Αντικείμενο Αριθμός'; scn='Απλό Κανάλι'; dcn='Διπλό Κανάλι'; tcn='Τριπλό Κανάλι'; qcn='Τετραπλό Κανάλι'; ovc='Υπερχρονισμός'}
+		else if(ln=='hu'){vendor=['Beszállító']; title='Memória támogatási lista'; typ='Típus'; spd='Sebesség'; siz='Méret'; mul='Modul'; chp='Chip'; ptn='Alkatrész sz.'; scn='Egycsatornás'; dcn='Kétcsatornás'; tcn='Háromcsatornás'; qcn='Négycsatornás'; ovc='OC'}
+		else if(ln=='it'){vendor=['Venditore']; title='Lista di Supporto Memoria'; typ='Tipo'; spd='Velocità'; siz='Dimensione'; mul='Modulo'; chp='Chip'; ptn='Parte n°'; scn='Canale singolo'; dcn='Canale doppio'; tcn='Canale triplo'; qcn='Canale quadruplo'; ovc='OC'}
+		else if(ln=='jp'){vendor=['ベンダー']; title='メモリーサポート一覧表'; typ='タイプ'; spd='速度'; siz='サイズ'; mul='モジュール'; chp='チップ'; ptn='部品番号'; scn='シングルチャネル'; dcn='デュアルチャネル'; tcn='トリプルチャネル'; qcn='クアッドチャネル'; ovc='OC'}
+		else if(ln=='kr'){vendor=['자동 판매기']; title='메모리 지원 목록'; typ='유형'; spd='속도'; siz='메모리 용량'; mul='모듈'; chp='칩'; ptn='파트넘버'; scn='싱글 채널'; dcn='듀얼 채널'; tcn='트리플 채널'; qcn='쿼드 채널'; ovc='OC'}
+		else if(ln=='nl'){vendor=['Verkoper']; title='Geheugen ondersteuninglijst'; typ='Type'; spd='Snelheid'; siz='Grootte'; mul='Module'; chp='Chip'; ptn='Onderdeel Nr'; scn='Single Channel'; dcn='Dual Channel'; tcn='Triple Channel'; qcn='Quad Channel'; ovc='Overklok'}
+		else if(ln=='pl'){vendor=['Sprzedawca']; title='Współpracujące pamięci'; typ='Typ'; spd='Szybkość'; siz='Wielkość'; mul='Moduł'; chp='Chip'; ptn='Numer katalogowy'; scn='Single Channel'; dcn='Dual Channel'; tcn='Triple Channel'; qcn='Quad Channel'; ovc='OC'}
+		else if(ln=='pt'){vendor=['Marca']; title='Lista de Memórias Suportadas'; typ='Tipo'; spd='Velocidade'; siz='Tamanho'; mul='Módulo'; chp='Chip'; ptn='Part No'; scn='Single Channel'; dcn='Dual Channel'; tcn='Triple Channel'; qcn='Quad Channel'; ovc='OC'}
+		else if(ln=='ro'){vendor=['Furnizor']; title='Support Memorii'; typ='Tip'; spd='Viteza'; siz='Dimensiuni'; mul='Modul'; chp='Chip'; ptn='Numar produs'; scn='Single Channel'; dcn='Dual Channel'; tcn='Triple Channel'; qcn='Quad Channel'; ovc='OC'}
+		else if(ln=='ru'){vendor=['Производитель']; title='Список поддерживаемой памяти'; typ='Тип'; spd='Скорость'; siz='Объем'; mul='Модуль'; chp='Чип'; ptn='Номер партии'; scn='одноканальная'; dcn='Двухканальная'; tcn='Трехканальная'; qcn='Четырехканальная'; ovc='Разгон'}
+		else if(ln=='th'){vendor=['ผู้ขาย']; title='รายการหน่วยความจำที่รองรับ'; typ='ชนิด'; spd='ความเร็ว'; siz='ขนาด'; mul='โมดูล'; chp='ชิป'; ptn='ส่วนที่ไม่มี'; scn='Single Channel'; dcn='Dual Channel'; tcn='Triple Channel'; qcn='Quad Channel'; ovc='OC'}
+		else if(ln=='tw'){vendor=['供應商']; title='記憶體支援列表'; typ='類型'; spd='速度'; siz='大小'; mul='模組'; chp='晶片'; ptn='產品編號'; scn='單通道'; dcn='雙通道'; tcn='三通道'; qcn='四通道'; ovc='OC'}
+		else if(ln=='vn'){vendor=['người bán']; title='Danh sách bộ nhớ trong hỗ trợ'; typ='Kiểu'; spd='Tốc độ'; siz='Kích thước'; mul='Mô-đun'; chp='khèo'; ptn='phần Không'; scn='Single Channel'; dcn='Dual Channel'; tcn='Triple Channel'; qcn='Quad Channel'; ovc='OC'}
+		else if(ln=='fa'){vendor=['فروشنده']; title='لیست پشتیبانی از حافظه ها'; typ='نوع'; spd='سرعت'; siz='اندازه'; mul='واحد'; chp='تراشه'; ptn='قسمت بدون'; scn='تک کاناله'; dcn='دو کانال'; tcn='کانال سه گانه'; qcn='چهار کانال'; ovc='OC'}
+		else{vendor=['Vendor']; title='Memory QVL'; typ='Type'; spd='Speed'; siz='Size'; mul='Module'; chp='Chip'; ptn='Part No'; scn='Single Channel'; dcn='Dual Channel'; tcn='Triple Channel'; qcn='Quad Channel'; ovc='OC'}
+		if(data.status=='ok'){
+			var total=data.contents.length / 14, thead='', tbody='', remark='', tmpVen='';
+			for(var i=0; i < total; i++) {
+				tbody+='<tr align=center class="mQVL '+data.contents[i*14+3].replace('.', '').replace('-', '').replace('\'', '').replace('&', '').replace(' ', '')+'">';
+				for(var j=0; j<=9; j++){tbody+='<td>'+data.contents[i*14+j]+'</td>';}
+				if(data.triple){tbody+='<td>'+data.contents[i*14+10]+'</td>'};
+				if(data.quad){tbody+='<td>'+data.contents[i*14+11]+'</td>'};
+				if(data.contents[i*14+12]){tbody+='<td>v</td>'}else{tbody+='<td></td>'}
+				if($.inArray(data.contents[i*14+3], vendor)==-1){vendor.push(data.contents[i*14+3])};
+			};
+			thead='<thead><tr><th>'+typ+'</th><th data-sort="int">'+spd+'</th><th data-sort="int">'+siz+'</th><th>';
+			if(navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0){ // removed IE support
+				thead+=vendor[0];
+			}else{
+				for (i=0; i < vendor.length; i++) {tmpVen+='<option value="'+vendor[i].replace('.', '').replace('-', '').replace('\'', '').replace('&', '').replace(' ', '')+'">'+vendor[i]+'</option>';vendor[i]=vendor[i].replace('.', '').replace('-', '').replace('\'', '').replace('&', '').replace(' ', '')}
+				thead+='<select id=Vendor onchange="if(this.selectedIndex==0){$(\'.mQVL\').fadeIn()}else{$(\'.mQVL\').hide();$(\'.\'+this.value).fadeIn();};" style="width:80px;">'+tmpVen+'</select>';
+			}
+			thead+='</th><th>'+mul+'</th><th>'+chp+'</th><th>'+ptn+'</th><th>SS/DS</th><th>'+scn+'</th><th>'+dcn+'</th>'
+			if(data.triple){thead+='<th>'+tcn+'</th>'};
+			if(data.quad){thead+='<th>'+qcn+'</th>'};
+			if(data.remark!=''){remark='<div class="Notice">'+data.remark.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br>$2')+'</div>'};
+			thead+='<th>'+ovc+'</th></tr></thead>';
+
+			$('#Memory').html('<h4>'+title+'</h4>'+remark+'<table>'+thead+'<tbody>'+tbody+'</tbody></table>').fadeIn();
+			var table = $('table').stupidtable(); table.on('aftertablesort', function (event, data) { var th = $(this).find("th"); th.find(".arrow").remove(); var dir = $.fn.stupidtable.dir; var arrow = data.direction === dir.ASC ? "&uarr;" : "&darr;"; th.eq(data.column).append('<span class="arrow">' + arrow +'</span>'); });
+		}else{
+			if(data.message=='Support not found!'){
+				$("#Memory").html('<h4>'+title+'</h4><div class=Notice>'+GetErr(ln, 1)+'</div>').fadeIn();
+			}else{
+				$("#Memory").html('<h4>'+title+'</h4><div class=Notice>'+GetErr(ln, 2)+'</div>').fadeIn();
+			}
+		}
+	});
+};
+
+function GetStorage(Model, ln){
+	var title1, title2, title3, title4, title5, vdr, siz, ife, pno, leh, Contents='';
+	if(ln=='bg'){title1='Списък с PCIe SSD поддръжка'; title2='Списък с Hyper M.2_SSD (NGFF) поддръжка'; title3='Списък с Ultra M.2_SSD (NGFF) поддръжка'; title4='Списък с M.2_SSD (NGFF) поддръжка'; title5='Списък с поддържани SATA устройства'; vdr='Продавач'; siz='Размер'; ine='Interface'; pno='Парт. Номер'; leh='дължина'}
+	else if(ln=='cn'){title1='PCIe SSD 支持列表'; title2='Hyper M.2_SSD (NGFF) 模块支持列表'; title3='Ultra M.2_SSD (NGFF) 模块支持列表'; title4='M.2_SSD (NGFF) 模块支持列表'; title5='SATA SSD 支持列表'; vdr='制造商'; siz='大小'; ine='接口'; pno='产品编号'; leh='长度'}
+	else if(ln=='de'){title1='PCIe SSD Support Liste'; title2='Hyper M.2_SSD (NGFF) Support Liste'; title3='Ultra M.2_SSD (NGFF) Support Liste'; title4='M.2_SSD (NGFF) Support Liste'; title5='SATA SSD Support Liste'; vdr='Anbieter'; siz='Größe'; ine='Schnittstelle'; pno='P/N'; leh='Länge'}
+	else if(ln=='es'){title1='Lista de soporte PCIe SSD'; title2='Lista de soporte Hyper M.2_SSD (NGFF)'; title3='Lista de soporte Ultra M.2_SSD (NGFF)'; title4='Lista de soporte M.2_SSD (NGFF)'; title5='Lista de soporte SATA'; vdr='Fabricante'; siz='Tamaño'; ine='Interfaz'; pno='Número de parte'; leh='Longitud'}
+	else if(ln=='fa'){title1='فهرست SSD های PCIe پشتیبانی'; title2='Hyper M.2 SSD فهرست (NGFF) ماژول پشتیبانی'; title3='فوق العاده M.2 SSD فهرست (NGFF) ماژول پشتیبانی'; title4='M.2_SSD (NGFF) ماژول فهرست پشتیبانی'; title5='فهرست SATA SSD پشتیبانی'; vdr='دستفروش'; siz='اندازه'; ine='رابط'; pno='قسمت بدون'; leh='طول'}
+	else if(ln=='fr'){title1='Compatibilité PCIe SSD'; title2='Compatibilité Hyper M.2_SSD (NGFF)'; title3='Compatibilité Ultra M.2_SSD (NGFF)'; title4='Compatibilité M.2_SSD (NGFF)'; title5='Compatibilité SATA SSD'; vdr='Fabricant'; siz='Taille'; ine='Interface'; pno='N° de référence'; leh='Longueur'}
+	else if(ln=='gr'){title1='Λίστα PCIe SSD που υποστηρίζουν'; title2='Λίστα Hyper M.2_SSD (NGFF) που υποστηρίζουν'; title3='Λίστα Ultra M.2_SSD (NGFF) που υποστηρίζουν'; title4='Λίστα M.2_SSD (NGFF) που υποστηρίζουν'; title5='Λίστα υποστηριζόμενων SATA συσκευών'; vdr='Πωλητής'; siz='Μέγεθος'; ine='Διασύνδεση'; pno='Αντικείμενο Αριθμός'; leh='μήκος'}
+	else if(ln=='hu'){title1='PCIe SSD Támogatási lista'; title2='Hyper M.2_SSD (NGFF) Támogatási lista'; title3='Ultra M.2_SSD (NGFF) Támogatási lista'; title4='M.2_SSD (NGFF) Támogatási lista'; title5='SATA SSD Támogatási lista'; vdr='Beszállító'; siz='Méret'; ine='Felület'; pno='Alkatrész sz.'; leh='Hossz'}
+	else if(ln=='it'){title1='Lista di Supporto PCIe SSD'; title2='Lista di Supporto Hyper M.2_SSD (NGFF)'; title3='Lista di Supporto Ultra M.2_SSD (NGFF)'; title4='Lista di Supporto M.2_SSD (NGFF)'; title5='Lista di supporto SATA'; vdr='Venditore'; siz='Dimensione'; ine='Interfaccia'; pno='Parte n°'; leh='lunghezza'}
+	else if(ln=='jp'){title1='PCIe SSD サポート一覧表'; title2='Hyper M.2_SSD (NGFF) サポート一覧表'; title3='Ultra M.2_SSD (NGFF) サポート一覧表'; title4='M.2_SSD (NGFF) サポート一覧表'; title5='SATA SSD サポート一覧表'; vdr='ベンダー'; siz='ファイルサイズ'; ine='インターフェース'; pno='部品番号'; leh='長さ'}
+	else if(ln=='kr'){title1='PCIe SSD 지원 목록'; title2='Hyper M.2_SSD (NGFF) 지원 목록'; title3='Ultra M.2_SSD (NGFF) 지원 목록'; title4='M.2_SSD (NGFF) 지원 목록'; title5='SATA SSD 지원 목록'; vdr='자동 판매기'; siz='크기'; ine='인터페이스'; pno='파트넘버'; leh='길이'}
+	else if(ln=='nl'){title1='PCIe SSD ondersteuninglijst'; title2='Hyper M.2_SSD (NGFF) ondersteuninglijst'; title3='Ultra M.2_SSD (NGFF) ondersteuninglijst'; title4='M.2_SSD (NGFF) ondersteuninglijst'; title5='SATA SSD ondersteuninglijst'; vdr='Verkoper'; siz='Grootte'; ine='Interface'; pno='Onderdeel Nr'; leh='Lengte'}
+	else if(ln=='pl'){title1='Obsługa PCIe SSD'; title2='Obsługa Hyper M.2_SSD (NGFF)'; title3='Obsługa Ultra M.2_SSD (NGFF)'; title4='Obsługa M.2_SSD (NGFF)'; title5='Obsługa SATA SSD'; vdr='Sprzedawca'; siz='Rozmiar'; ine='Interfejs'; pno='Numer katalogowy'; leh='Długość'}
+	else if(ln=='pt'){title1='Lista de Suporte de PCIe SSD'; title2='Lista de Suporte de Hyper M.2_SSD (NGFF)'; title3='Lista de Suporte de Ultra M.2_SSD (NGFF)'; title4='Lista de Suporte de M.2_SSD (NGFF)'; title5='Lista de Suporte SATA'; vdr='Marca'; siz='Tamanho'; ine='Interface'; pno='Part No.'; leh='Comprimento'}
+	else if(ln=='ro'){title1='Support PCIe SSD'; title2='Support Hyper M.2_SSD (NGFF)'; title3='Support Ultra M.2_SSD (NGFF)'; title4='Support M.2_SSD (NGFF)'; title5='Support SATA SSD'; vdr='Furnizor'; siz='Dimensiune'; ine='Interfață'; pno='Numar produs'; leh='Lungime'}
+	else if(ln=='ru'){title1='Список поддерживаемых PCIe SSD'; title2='Список поддерживаемых Hyper M.2_SSD (NGFF)'; title3='Список поддерживаемых Ultra M.2_SSD (NGFF)'; title4='Список поддерживаемых M.2_SSD (NGFF)'; title5='Список поддерживаемых SATA SSD'; vdr='Производитель'; siz='Размер'; ine='интерфейс'; pno='Номер партии'; leh='длина'}
+	else if(ln=='th'){title1='รายการ PCIe SSD สนับสนุน'; title2='รายการ Hyper M.2_SSD (NGFF) สนับสนุน'; title3='รายการ Ultra M.2_SSD (NGFF) สนับสนุน'; title4='รายการ M.2_SSD (NGFF) สนับสนุน'; title5='รายการ SATA SSD สนับสนุน'; vdr='ผู้ขาย'; siz='ขนาด'; ine='อินเตอร์เฟซ'; pno='ส่วนที่ไม่มี'; leh='ความยาว'}
+	else if(ln=='tw'){title1='PCIe SSD 支援列表'; title2='Hyper M.2_SSD (NGFF) 模組支援列表'; title3='Ultra M.2_SSD (NGFF) 模組支援列表'; title4='M.2_SSD (NGFF) 模組支援列表'; title5='SATA SSD 支援列表'; vdr='供應商'; siz='大小'; ine='介面'; pno='產品編號'; leh='長度'}
+	else if(ln=='vn'){title1='PCIe SSD Danh sách hỗ trợ'; title2='Hyper M.2_SSD (NGFF) Mô-đun Danh sách hỗ trợ'; title3='Ultra M.2_SSD (NGFF) Mô-đun Danh sách hỗ trợ'; title4='M.2_SSD (NGFF) Mô-đun Danh sách hỗ trợ'; title5='SATA SSD Danh sách hỗ trợ'; vdr='người bán'; siz='Kích thước'; ine='giao diện'; pno='phần Không'; leh='Chiều dài'}
+	else{title1='PCIe SSD Support List'; title2='Hyper M.2_SSD (NGFF) Module Support List'; title3='Ultra M.2_SSD (NGFF) Module Support List'; title4='M.2_SSD (NGFF) Module Support List'; title5='SATA SSD Support List'; vdr='Vender'; siz='Size'; ine='Interface'; pno='Part No.'; leh='Length'}
+	$.getJSON('/mb/productGet.asp?cat=Storage&Model='+encodeURIComponent(Model), function(data){
+		for(var j=1; j<=5; j++){
+			if(data[j].status=='ok'){
+				if(j==1 || j==5){
+					var field=4, total=data[j].contents.length / field, thead=tbody=remark='';
+					thead='<thead><tr><th data-sort="string" width="20%">'+vdr+'</th><th data-sort="int" width="10%">'+siz+'</th><th data-sort="string" width="20%">'+ine+'</th><th>'+pno+'</th></tr></thead>'
+				}else{
+					var field=5, total=data[j].contents.length / field, thead=tbody=remark='';
+					thead='<thead><tr><th data-sort="string" width="20%">'+vdr+'</th><th data-sort="int" width="10%">'+siz+'</th><th data-sort="string" width="10%">'+ine+'</th><th data-sort="int">'+leh+'</th><th>'+pno+'</th></tr></thead>'
+				};
+				for(var i=0; i < total; i++){ tbody+='<tr align=center>'; for(var k=0; k < field; k++){tbody+='<td>'+data[j].contents[i*field+k]+'</td>';}; tbody+='</tr>'; }
+				if(data[j].remark!=''){remark='<div class=Notice>'+data[j].remark.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br>$2')+'</div>'};
+				switch(j){
+					case 1: Contents+='<h4>'+title1+'</h4>'; break;
+					case 2: Contents+='<h4>'+title2+'</h4>'; break;
+					case 3: Contents+='<h4>'+title3+'</h4>'; break;
+					case 4: Contents+='<h4>'+title4+'</h4>'; break;
+					case 5: Contents+='<h4>'+title5+'</h4>'; break;
+				}; Contents+=remark+'<table style="margin-bottom:2em;">'+thead+'<tbody>'+tbody+'</tbody></table>';
+			}
+		}
+		if(Contents!=''){
+			$('#Storage').html(Contents).fadeIn();
+			var table = $('table').stupidtable(); table.on('aftertablesort', function (event, data) { var th = $(this).find("th"); th.find(".arrow").remove(); var dir = $.fn.stupidtable.dir; var arrow = data.direction === dir.ASC ? "&uarr;" : "&darr;"; th.eq(data.column).append('<span class="arrow">' + arrow +'</span>'); });
+		};
+	});
+};
+
+function GetFAQ(Model, ln){
+	$.getJSON('/mb/productGet.asp?cat=FAQ&Model='+encodeURIComponent(Model), function(data){
+		var title, tbottom; if(ln=='bg'){title='Често задавани въпроси'; tbottom='Моля, вижите <a href="/support/faq.bg.asp?c=General">Общите Често задавани въпроси</a>, <a href="/support/faq.bg.asp?c=HDD">ЧЗД за Твърди дискове</a>, <a href="/support/faq.bg.asp?c=Audio">ЧЗД за Аудио</a> или <a href="/support/faq.bg.asp?c=VGA">ЧЗД за Видеокарти</a> за справка.\nАко имате нужда от повече техническа поддръжка, моля натиснете <a href="http://event.asrock.com/tsd.asp" target=_blank>тук</a>.'}
+		else if(ln=='cn'){title='常见问题解答'; tbottom='其它问题请参阅 <a href="/support/faq.cn.asp?c=General">常见问题</a>, <a href="/support/faq.cn.asp?c=HDD">硬盘相关</a>, <a href="/support/faq.cn.asp?c=Audio">音效相关</a>, <a href="/support/faq.cn.asp?c=VGA">显卡相关</a>。\n若您需要技术支持，请造访<a href="http://event.asrock.com/tsd.asp" target=_blank>此处</a>。'}
+		else if(ln=='de'){title='FAQ'; tbottom='Bitte lesen Sie die <a href="/support/faq.de.asp?c=General">generelle FAQ</a>, <a href="/support/faq.de.asp?c=HDD">HDD FAQ</a>, <a href="/support/faq.de.asp?c=Audio">Audio FAQ</a>, <a href="/support/faq.de.asp?c=VGA">VGA FAQ</a>.\nWenn Sie weiterführenden technischen Support benötigen klicken Sie bitte <a href="http://event.asrock.com/tsd.asp" target=_blank>hier</a>.'}
+		else if(ln=='es'){title='Preguntas más frecuentes'; tbottom='Por favor vea <a href="/support/faq.es.asp?c=General">General FAQ</a>, <a href="/support/faq.es.asp?c=HDD">FAQ de HDD</a>, <a href="/support/faq.es.asp?c=Audio">FAQ Audio</a>, <a href="/support/faq.es.asp?c=VGA">FAQ de VGA</a> para la referencia.\nSi necesita más soporte técnico, por favor haga clic <a href="http://event.asrock.com/tsd.asp" target=_blank>aquí</a>.'}
+		else if(ln=='fa'){title='FAQ'; tbottom='لطفا سوالات متداول عمومی، هارد دیسک، صدا و کارت گرافیکی را به عنوان مرجع نگاه کنید <a href="/support/faq.asp?c=General">General FAQ</a>, <a href="/support/faq.asp?c=HDD">HDD FAQ</a>, <a href="/support/faq.asp?c=Audio">Audio FAQ</a>, <a href="/support/faq.asp?c=VGA">VGA FAQ</a>.\nکلیک کنید <a href="http://event.asrock.com/tsd.asp" target=_blank>اینجا</a> اگر شما نیاز به پشتیبانی فنی بیشتر، لطفا .'}
+		else if(ln=='fr'){title='Foire Aux Questions'; tbottom='Veuillez consulter la <a href="/support/faq.fr.asp?c=General">FAQ Générale</a>, <a href="/support/faq.fr.asp?c=HDD">FAQ HDD</a>, <a href="/support/faq.fr.asp?c=Audio">FAQ Audio</a>, <a href="/support/faq.fr.asp?c=VGA">FAQ VGA</a> pour plus d’informations.\nSi vous avez besoin d’un support technique supplémentaire, veuillez cliquer <a href="http://event.asrock.com/tsd.asp" target=_blank>ici</a>.'}
+		else if(ln=='gr'){title='Συχνές Ερωτήσεις'; tbottom='Παρακαλώ δείτε <a href="/support/faq.gr.asp?c=General">Γενικές Συχνές Ερωτήσεις</a>, <a href="/support/faq.gr.asp?c=HDD">Συχνές Ερωτήσεις HDD</a>, <a href="/support/faq.gr.asp?c=Audio">Συχνές Ερωτήσεις Ήχου</a>, <a href="/support/faq.gr.asp?c=VGA">Συχνές Ερωτήσεις VGA</a> για πληροφορίες.\nΕάν χρειάζεστε περαιτέρω τεχνική υποστήριξη, παρακαλούμε κάντε κλικ <a href="http://event.asrock.com/tsd.asp" target=_blank>εδώ</a>.'}
+		else if(ln=='hu'){title='GYIK'; tbottom='További információért, kérjük olvassa el az <a href="/support/faq.hu.asp?c=General">általános GYIK</a>, <a href="/support/faq.hu.asp?c=HDD">HDD GYIK</a>, <a href="/support/faq.hu.asp?c=Audio">Audio GYIK</a>, <a href="/support/faq.hu.asp?c=VGA">VGA GYIK</a> menüpontokat.\nHa műszaki támogatásra van szüksége, kattintson <a href="http://event.asrock.com/tsd.asp" target=_blank>ide</a>.'}
+		else if(ln=='it'){title='FAQ'; tbottom='Si prega di consultare le <a href="/support/faq.it.asp?c=General">FAQ Generali</a>, <a href="/support/faq.it.asp?c=HDD">FAQ HDD</a>, <a href="/support/faq.it.asp?c=Audio">FAQ Audio</a>, <a href="/support/faq.it.asp?c=VGA">FAQ VGA</a> come riferimento.\nSe hai bisogno di ulteriore supporto tecnico, clicca <a href="http://event.asrock.com/tsd.asp" target=_blank>qui</a>.'}
+		else if(ln=='jp'){title='よくあるご質問と回答'; tbottom='その他の問題は<a href="/support/faq.jp.asp?c=General">よくあるご質問</a>、<a href="/support/faq.jp.asp?c=HDD">ハードディスク関連</a>、<a href="/support/faq.jp.asp?c=Audio">オーディオ関連</a>、<a href="/support/faq.jp.asp?c=VGA">グラフィックカード関連</a>を参照してください。\nさらに技術サポートが必要な場合は、<a href="http://event.asrock.com/tsd.asp" target=_blank>ここ</a>ここをクリックしてください。'}
+		else if(ln=='kr'){title='자주 있는 질문과 답변'; tbottom='<a href="/support/faq.kr.asp?c=General">그외의 FAQ</a>, <a href="/support/faq.kr.asp?c=HDD">HDD FAQ</a>, <a href="/support/faq.kr.asp?c=Audio">오디오 FAQ</a>, <a href="/support/faq.kr.asp?c=VGA">VGA FAQ</a> 질문답변은 링크를 참조하십시오.\n더 많은 기술 지원이 필요한 경우, <a href="http://event.asrock.com/tsd.asp" target=_blank>여기</a>를 클릭하십시오.'}
+		else if(ln=='nl'){title='FAQ'; tbottom='Leest u a.u.b. de <a href="/support/faq.nl.asp?c=General">generale FAQ</a>, <a href="/support/faq.nl.asp?c=HDD">HDD FAQ</a>, <a href="/support/faq.nl.asp?c=Audio">Audio FAQ</a>, <a href="/support/faq.nl.asp?c=VGA">VGA FAQ</a> voor referenties.\nIf you need more technical support, please click <a href="http://event.asrock.com/tsd.asp" target=_blank>here</a>.'}
+		else if(ln=='pl'){title='FAQ'; tbottom='Zapoznaj się z <a href="/support/faq.pl.asp?c=General">ogólnym FAQ</a>, <a href="/support/faq.pl.asp?c=HDD">HDD FAQ</a>, <a href="/support/faq.pl.asp?c=Audio">Audio FAQ</a>, <a href="/support/faq.pl.asp?c=VGA">VGA FAQ</a>.\nJeśli potrzebujesz wsparcia technicznego, kliknij <a href="http://event.asrock.com/tsd.asp" target=_blank>tutaj</a>.'}
+		else if(ln=='pt'){title='Perguntas Frequentes'; tbottom='Por favor veja as <a href="/support/faq.pt.asp?c=General">Perguntas Frequentes Gerais</a>, <a href="/support/faq.pt.asp?c=HDD">Perguntas Frequentes de HDD</a>, <a href="/support/faq.pt.asp?c=Audio">Perguntas Frequentes de Áudio</a>, <a href="/support/faq.pt.asp?c=VGA">Perguntas Frequentes de VGA</a> para referência.\nSe você precisar de mais suporte técnico, por favor clique <a href="http://event.asrock.com/tsd.asp" target=_blank>aqui</a>.'}
+		else if(ln=='ro'){title='Întrebări frecvente'; tbottom='Vă rugăm să consultaţi întrebările <a href="/support/faq.ro.asp?c=General">frecvente generale</a>, <a href="/support/faq.ro.asp?c=HDD">întrebări frecvente HDD</a>, <a href="/support/faq.ro.asp?c=Audio">Audio</a> şi <a href="/support/faq.ro.asp?c=VGA">VGA</a>, pentru referinţă.\nIf you need more technical support, please click <a href="http://event.asrock.com/tsd.asp" target=_blank>here</a>.'}
+		else if(ln=='ru'){title='Часто задаваемые вопросы'; tbottom='Вы можете ознакомиться с ответами на частые вопросы об <a href="/support/faq.ru.asp?c=General">общих характеристиках продукции</a>, <a href="/support/faq.ru.asp?c=HDD">жестких дисках</a>, <a href="/support/faq.ru.asp?c=Audio">аудиоконтроллерах</a> и <a href="/support/faq.ru.asp?c=VGA">видеоконтроллерах</a>.\nЕсли вам нужна техническая поддержка, нажмите <a href="http://event.asrock.com/tsd.asp" target=_blank>здесь</a>.'}
+		else if(ln=='th'){title='คำถามที่พบบ่อย'; tbottom='โปรดอ่าน <a href="/support/faq.th.asp?c=General">คำถามทั่วไป</a>, <a href="/support/faq.th.asp?c=HDD">คำถามเกี่ยวกับฮาร์ดดิส</a>, <a href="/support/faq.th.asp?c=Audio">การ์ดเสียง</a>, <a href="/support/faq.th.asp?c=VGA">กราฟฟิคการ์ด</a>สำหรับการอ้างอิง.\nถ้าคุณต้องการการสนับสนุนด้านเทคนิคเพิ่มเติม กรุณาคลิกมาที่ <a href="http://event.asrock.com/tsd.asp" target=_blank>here</a>.'}
+		else if(ln=='tw'){title='常見問題解答'; tbottom='其它問題請參閱 <a href="/support/faq.tw.asp?c=General">常見問題</a>, <a href="/support/faq.tw.asp?c=HDD">硬碟相關</a>, <a href="/support/faq.tw.asp?c=Audio">音效相關</a>, <a href="/support/faq.tw.asp?c=VGA">顯示卡相關</a>。\n若您需要技術支援，請造訪<a href="http://event.asrock.com/tsd.asp" target=_blank>此處</a>。'}
+		else if(ln=='vn'){title='FAQ'; tbottom='Vui lòng xem phần <a href="/support/faq.vn.asp?c=General">Vui lòng xem phần</a>, <a href="/support/faq.vn.asp?c=HDD">Các câu hỏi thường gặp về HDD</a>, <a href="/support/faq.vn.asp?c=Audio">Các câu hỏi thường gặp về âm thanh</a>, <a href="/support/faq.vn.asp?c=VGA">Các câu hỏi thường gặp về Card đồ họa</a> để tham khảo.\nNếu bạn cần hỗ trợ kỹ thuật, vui lòng nhấn vào <a href="http://event.asrock.com/tsd.asp" target=_blank>đây</a>.'}
+		else{title='FAQ'; tbottom='Please see <a href="/support/faq.asp?c=General">General FAQ</a>, <a href="/support/faq.asp?c=HDD">HDD FAQ</a>, <a href="/support/faq.asp?c=Audio">Audio FAQ</a>, <a href="/support/faq.asp?c=VGA">VGA FAQ</a> for reference.\nIf you need more technical support, please click <a href="http://event.asrock.com/tsd.asp" target=_blank>here</a>.'}
+		if(data.status=='ok'){
+			var total=data.contents.length / 4, tbody='';
+			for(var i=0; i < total; i++) {
+				tbody+='<div class="FAQq" onclick="$(this).next().slideToggle();">Q: '+data.contents[i*4+2].replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br>$2')+' ('+data.contents[i*4+1]+')</div>';
+				tbody+='<div class="FAQa" style="display:none;">A: '+data.contents[i*4+3].replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br>$2')+'</div>';
+			};
+			if(ln=='cn'){tbody=tbody.replace(/ Taichi/g, ' 太极').replace(/Fatal1ty /g, '玩家至尊 ').replace(/ Professional/g, ' 专业版').replace(/ Performance/g, ' 效能版').replace(/ Killer/g, ' 杀手版').replace(/ Extreme/g, ' 极限玩家')};
+			$('#FAQ').html('<h4>'+title+'</h4>'+tbody+'<p>'+tbottom+'</p>').fadeIn();
+		}else{
+			$("#FAQ").html('<h4>'+title+'</h4><div class=Notice>'+GetErr(ln, 1)+'</div><p>'+tbottom+'</p>').fadeIn();
+		}
+	});
+};
