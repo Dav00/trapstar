@@ -1,0 +1,292 @@
+﻿html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin:0; padding:0; border:0; font-size:100%; font:inherit;}
+html, body { height:100%;}
+body {line-height:1; background:#fff;}
+ol, ul, li {list-style:none;}
+table {border-collapse:collapse; border-spacing:0;}
+body {-webkit-text-size-adjust:none;}
+* {-o-transition:color .30s linear, background-color .30s linear, border-color .30s linear;-webkit-transition:color .30s linear, background-color .30s linear, border-color .30s linear;-moz-transition:color .30s linear, background-color .30s linear, border-color .30s linear;transition:color .30s linear, background-color .30s linear, border-color .30s linear;}
+b {font-weight:bold;}
+p, div, li, td, th, input, textarea, span {font:normal 13pt arial, helvetica, sans-serif;}
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:active, input:-webkit-autofill:focus {background-color:#000000 !important;color:#ff0 !important;-webkit-box-shadow: 0 0 0 1000px #332200 inset !important;-webkit-text-fill-color: #ffff00 !important;}
+::selection { background:#8c3; color:#000;}
+
+#Header {background:#000; border-bottom:3px solid #888; height:50px; cursor:default; z-index:10;width:100%;}
+#Logo {width:112px; height:46px; position:absolute; margin-left:20px; background:url(/images/ASRock[W].png) no-repeat; z-index:10; transition:all 0.3s ease-in-out;}
+#Logo:hover {background:url(/images/ASRock[W]On.png); transition:all 0.3s ease-in-out;}
+#LogoIPC {width:112px; height:46px; position:absolute; margin-left:20px; background:url(/images/ASRockIPC[W].png) no-repeat; z-index:10; transition:all 0.3s ease-in-out;}
+#LogoIPC:hover {background:url(/images/ASRockIPC[W]On.png); transition:all 0.3s ease-in-out;}
+
+#Menu {display:none; font-family:"Trebuchet MS", arial, helvetica, sans-serif; line-height:50px;}
+#Header .nav {float:right; margin-right:30px; display:block; z-index:10;}
+#Header .nav li{border-bottom:3px solid #888; transition:all 0.3s ease-in-out; position:relative; float:left; height:50px; line-height:50px;}
+#Header .nav li:hover{border-bottom:3px solid #ccc; transition:all 0.5s ease-in-out;}
+#Header .nav li>a{font-family:"Trebuchet MS", arial, helvetica, sans-serif; font-size:12pt; color:#fff; padding:0 20px; text-shadow:1px 1px #555; display:block; text-decoration:none;}
+#Header .nav li>a:hover {color:#ccc; cursor:pointer; background:url(/images/MenuOn.png) no-repeat center;}
+#Language {width:60px; height:50px; background:url(/images/Language.png) no-repeat center; transition:all 0.3s ease-in-out; }
+#Language:hover {background:url(/images/LanguageOn.png) no-repeat center; transition:all 0.3s ease-in-out; cursor:pointer;}
+
+@media screen and (max-width:1024px) {
+	#Menu {display:inline-block; background:#222; border-left:1px solid #444; padding:0 20px; color:#fff; float:right; text-shadow:1px 1px #000; cursor:pointer;}
+	#Menu:hover {background:#c00;border-left:1px solid #f00;}
+	#Header .nav {display:none;position:absolute;width:100%;margin-top:53px;}
+	#Header .nav li {float:none; border-bottom:1px solid #555; text-align:center; background:rgba(10%,10%,10%,0.9);} #Header .nav li:hover{border-bottom:1px solid #555; background:#000;}
+	#Language {width:100%;}
+}
+@media screen and (max-width:480px) {
+	#Logo {margin-left:10px;}
+}
+
+#Products {display:none; position:absolute; top:58; z-index:9999; background:#111; width:100%; border-bottom:1px solid #555; text-shadow:1px 1px #444; text-align:center; padding-top:.5em; padding-bottom:.5em; box-shadow:0 0 10px rgba(20%, 50%, 100%, 1);}
+#Products img {width:60%;}
+#Products a {font:normal 13px "Trebuchet MS", arial, helvetica, sans-serif; color:#ccc;} #Products a:hover {color:#ff0;}
+#Products .inner div{width:16.6%;float:left;}
+#Campaigns {display:none; position:absolute; top:58; z-index:9999; background:#111; width:40%; border-bottom:1px solid #555; text-shadow:1px 1px #444; text-align:center; padding-top:.5em; padding-bottom:.5em; box-shadow:0 0 10px rgba(80%, 80%, 80%, 1); margin-left: 50%;}
+#Campaigns a {font:normal 14px "Trebuchet MS", arial, helvetica, sans-serif; color:#ccc;} #Campaigns a:hover {color:#ff0; text-decoration:none;}
+#Campaigns img {width:90%;}
+#Campaigns .inner {width:100%;}
+
+#SearchAll {width:100px; padding:0.5em; border:0; background:transparent; color:#3ff; outline:0; border:1px dotted #888; border-radius:5px;}
+#SearchBtn {background:url(/images/Search.png) no-repeat center; border:0; height:30px; width:30px; cursor:pointer;}
+#SearchBtn hover {background:url(/images/SearchOn.png) no-repeat center;}
+
+.ui-autocomplete {max-height:300px; overflow-y:auto; overflow-x:hidden;}
+.ui-menu-item-wrapper {background:#000;}
+.leftmenubutton {display:none;}
+@media screen and (max-width:480px) {
+	#Products {top:105px;}
+	#Products img {width:90%;}
+	#Products .inner div{width:33.3%;}
+	#SubItems {display:none;}
+	#Campaigns {top:155px; margin-left: 0; width:100%;}
+	#Campaigns img {width:90%;}
+	#Campaigns {display:none;}
+	.leftmenubutton {display:block;}
+}
+
+.Fields {margin-right:1.2em; padding:.2em .4em; background:#fafafa; color:#38c; border:1px solid #ccc; border-radius:3px; outline:0;}
+.Fields:hover, .Fields:focus {color:#000; text-shadow:1px 1px #fff; border:1px solid #5bc; box-shadow:0 0 2px #5bc; transition:all 0.3s ease-in-out;}
+.Buttons {border-radius:1em; cursor:pointer; font-weight:bold; margin:.2em; padding:.8em 1.6em; text-align:center; background:#fafafa; border:1px solid #ccc; text-shadow:1px 1px #fff; box-shadow:1px 1px 3px rgba(0,0,0, 0.2); color:#555; outline:0; transition:all 0.2s ease-in-out;}
+.Buttons:hover {background:#aff; text-shadow:1px 1px #fff; border:1px solid #888; box-shadow:2px 2px 5px rgba(0,0,0, 0.3); color:#000; transition:all 0.3s ease-in-out;} .Buttons:active {background:#fff; color:#880;}
+
+#briefModel {padding:10px 0 10px 20px; margin:0 0 20px 20px; border-left:6px solid #000; font-size:38pt; line-height:38pt; color:#000; font-family:"Trebuchet MS"; text-shadow:2px 1px #ccc;}
+#briefDesc {margin-left:55px;} #briefDesc li {list-style:circle; text-shadow:1px 1px #eee; line-height:23pt; color:#333;}
+#briefIcons {margin:18px;}
+#briefAvailable {border-left:3px solid #333; font-size:11pt; color:#666; padding:5px 10px 5px; margin:20px 0 0 20px; line-height:14pt;}
+#briefGallery, #briefGallery2 {clear:both;width:100%;padding-top:10px;}
+#briefGallery li, #briefGallery2 li {float:left;margin:10px 2px 0 0; width:66px; line-height:1px; } #briefGallery li img, #briefGallery2 li img {width:100%;}
+#briefGallery li a, #briefGallery2 li a{display:block; border:1px solid #ccc; border-radius:3px;}
+#briefGallery li .active, #briefGallery2 li .active{border:1px solid #666;}
+#briefGallery .briefVideo, #briefGallery2 .briefVideo {z-index:5; width:64px; height:64px; position:absolute; background:url('/images/youtube-play.png') no-repeat center; background-size:60%; transition:All 0.3s ease-in-out; transform:scale(0.8);}
+#briefGallery .briefVideo:hover, #briefGallery2 .briefVideo:hover {transform:scale(1.0);}
+.zoomWindow {background-color:#fff;}
+#briefAwardsHeader {background:url(/images/icon-Awards[W].gif) no-repeat; margin-top:2em; padding-left:40px; line-height:30px; color:#333;}
+#briefAwardsList {width:90%; margin-left:5%;}
+.briefAwardsItem:hover {border-radius:5px; background:linear-gradient(135deg, rgba(69,72,77,1) 0%,rgba(0,0,0,0) 50%);}
+#briefAwardsRight, #briefAwardsLeft {position:absolute; z-index:5;cursor:pointer; opacity:.5; margin-top:-12%; width:4%;}
+#briefAwardsRight {right:0;}
+#briefAwardsRight:hover, #briefAwardsLeft:hover {opacity:1;transition:all 0.3s ease-in-out;}
+
+@media screen and (max-width:480px) {
+	#briefModel {padding-left:10px; margin-left:5px; line-height:1.2em;}
+	#briefDesc {margin-left:30px;}
+	#briefIcons {margin-left:8px;}
+	#briefAvailable {margin-left:10px;}
+}
+#iconSales {background:url(/images/icon-Sales.jpg); width:146px; height:48px; float:left;}
+#iconVR {background:url(/images/icon-VR.jpg); width:146px; height:48px; float:left;}
+#iconWin10comp {background:url(/images/icon-Win10.png); width:64px; height:80px; float:left;}
+#iconWin10 {background:url(/images/icon-Win10[W].jpg); width:146px; height:48px; float:left;}
+#iconWin7 {background:url(/images/icon-Win7[W].jpg); width:146px; height:48px; float:left; cursor:pointer;}
+#iconThunderbolt {background:url(/images/icon-Thunderbolt[W].jpg); width:146px; height:48px; float:left;}
+#iconHDMI {background:url(/images/icon-HDMI.png) no-repeat; width:250px; height:59px; float:right; background-size:100%; margin-top:10px; margin-bottom:20px; margin-right:20px;}
+#iconDTS {background:url(/images/icon-DTS[W].png) no-repeat; width:220px; height:92px; float:right; background-size:100%; margin-bottom:10px; margin-right:20px;}
+
+.image{width:100%;}
+.desktop{display:block;}
+.mobile{display:none;}
+.right {float:right;}
+.left {float:left;}
+.center {text-align:center;}
+.posRelative {position:relative;}
+
+#SubItem {margin-top:2em;background:url(/images/subMenu[BS].gif); width:100%; border-top:1px solid #888; border-bottom:1px solid #777; height:49px;}
+#SubItem ul{width:1200px;margin:0 auto;}
+#SubItem li{background:url(/images/subMenu[BS].gif); float:left; height:49px; width:25%; line-height:49px; text-align:center; transition:all 0.3s ease-in-out; color:#fff;}
+#SubItem li:hover {cursor:pointer; color:#ff0;}
+#SubItem li.selected {background:url(/images/subMenu[BS]On.gif); transition:all 0.3s ease-in-out; color:#000; text-shadow:1px 1px #fff;}
+@media screen and (max-width:1280px) {#SubItem ul{width:100%;} .desktop{display:block;} .mobile{display:none;} }
+@media screen and (max-width:480px) {#SubItem li{font-size:9pt;} .desktop{display:none;} .mobile{display:block;} }
+
+.wrapper {padding:2em 0 2em 0; position:relative; z-index:1;}
+.wrapper .inner {margin:0 auto;width:1200px;} .wrapper .inner:after {content:''; display:block; clear:both;}
+.wrapper h1, .wrapper h2, .wrapper h3, .wrapper h4, .wrapper h5, .wrapper h6 {color:#000; font-family:Verdana, Geneva, sans-serif; text-shadow:2px 2px #ddd;}
+.wrapper h1 {font-size:1.5cm; line-height:1.7cm;}
+.wrapper h2 {font-size:1.3cm; line-height:1.5cm;}
+.wrapper h3 {font-size:1.1cm; line-height:1.3cm;}
+.wrapper h4 {font-size:0.9cm; line-height:1.1cm;}
+.wrapper h5 {font-size:0.7cm; line-height:0.9cm; text-shadow:1px 1px #ddd;}
+.wrapper h6 {font-size:0.5cm; line-height:0.7cm; text-shadow:1px 1px #ddd;}
+.wrapper a {color:#06e; text-decoration:none;}
+.wrapper a:hover {color:#680; text-decoration:underline; cursor:pointer;}
+.wrapper p {line-height:2.0; padding-bottom:1em;}
+.wrapper .Layout {background-repeat:no-repeat; background-size:cover; background-position:top center; padding-top:47%;}
+.wrapper .Banner {background-repeat:no-repeat; background-size:cover; background-position:top center; position:relative;}
+.wrapper .BigFeature {position:absolute; right:0; bottom:0; margin:auto;}
+.wrapper .BigFeatureWide {width:60%;left:0;}
+.wrapper .BigFeatureCust {width:80%;left:0;}
+.wrapper .FeatureLeft {left:20%;}
+.wrapper .FeatureRight {left:50%; right:10%;}
+.wrapper .SmallFeature {padding-top:1em; padding-bottom:1em;}
+.wrapper .SmallFeature img {width:96%;}
+.wrapper .Context {margin-top:2%; padding:1% 2%; background:rgba(0,0,0,0.02); border-radius:0.3em; border:1px solid rgba(0,0,0,0.06); text-shadow:1px 1px #fff; line-height:30px;} .wrapper .Context:hover {background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.12); box-shadow:0 3px 8px rgba(0,0,0,0.12); transition:all 0.3s ease-in-out;}
+.wrapper .UnorderList li {list-style:circle; margin-left:1.2em;}
+.wrapper .Remark {color:#888; font-size:0.35cm; line-height:0.52cm;}
+.wrapper .TableList {width:100%;}
+.wrapper .TableList th{background:#eee; text-align:center;}
+.wrapper .TableList th, .wrapper .TableList td{font-size:0.9em; border:1px solid #ccc; padding:0.2em 0.5em;}
+.wrapper .TableList tr:nth-child(even){background:#fafafa;}
+.wrapper .TableList tr:hover{background:#aff; transition:All 0.1s ease-in-out;}
+@media screen and (max-width:1280px) {
+	.wrapper .inner {width:92%;}
+	.wrapper .BigFeatureWide, .wrapper .BigFeatureCust {width:86%;}
+	.wrapper .FeatureLeft {left:7.5%;}
+	.wrapper .FeatureRight {left:40%; right:5%;}
+}
+@media screen and (max-width:480px) {
+	.wrapper {padding:1em 0;}
+	.wrapper .Layout {padding-top:78%;}
+	.wrapper .inner {width:99%;}
+	.wrapper h1 {font-size:1.0cm; line-height:1.1cm;}
+	.wrapper h2 {font-size:0.9cm; line-height:1.0cm;}
+	.wrapper h3 {font-size:0.8cm; line-height:0.9cm;}
+	.wrapper h4 {font-size:0.7cm; line-height:0.8cm;}
+	.wrapper h5 {font-size:0.6cm; line-height:0.7cm;}
+	.wrapper h6 {font-size:0.5cm; line-height:0.6cm;}
+	.wrapper .BigFeature {position:relative;}
+	.wrapper .BigFeatureWide, .wrapper .BigFeatureCust {width:100%;}
+	.wrapper .FeatureLeft {left:0;}
+	.wrapper .FeatureRight {left:0;}
+	.wrapper .Context {padding:.1%;}
+}
+
+.wrapper .SpecForm {margin:0 auto 3em;}
+.wrapper .SpecForm li {border-top:1px solid #ddd;} .wrapper .SpecForm li:first-child {border-top:0;}
+.wrapper .SpecForm li:hover {background:#f8f8f8;}
+.wrapper .SpecForm .SpecItem {clear:both; width:10em; font-size:0.47cm; text-shadow:2px 2px #eee; color:#333; float:left; padding:0.8em; line-height:30px;}
+.wrapper .SpecForm .SpecData {border-left:1px solid #eee; font-size:0.45cm; text-shadow:1px 1px #eee; color:#555; margin-left:13em; padding:0.8em; line-height:30px;} .wrapper .SpecForm .SpecData:hover {border-left:1px solid #ddd; text-shadow:1px 1px #fff;}
+.wrapper .SpecForm .Notice {color:#555; font-size:0.38cm;}
+.wrapper .SpecForm .Table th {text-align:center; border:1px solid #555; font-size:0.38cm;}
+.wrapper .SpecForm .Table td {border:1px solid #555; font-size:0.38cm;}
+@media screen and (max-width:480px) {
+	.wrapper .SpecForm .SpecItem {width:100%; font-size:1em; font-weight:bold; float:left; padding-top:1em;}
+	.wrapper .SpecForm .SpecData {clear:both; padding-top:0; border-left:0; width:90%; font-size:0.9em; margin-left:3%;} .wrapper .SpecForm .SpecData:hover {border-left:0;}
+}
+
+.wrapper .Support select {background:#fafafa; color:#333; border-radius:5px; padding:0.2em;}
+.wrapper .Support table {width:100%;}
+.wrapper .Support th{background:#eee; text-align:center;}
+.wrapper .Support th, .wrapper .Support td{font-size:0.38cm; border:1px solid #ccc; padding:0.2em 0.5em;}
+.wrapper .Support th[data-sort]{cursor:pointer;color:#08f;}
+.wrapper .Support tr:nth-child(even){background:#fafafa;}
+.wrapper .Support tr:hover{background:#aff; transition:All 0.1s ease-in-out;}
+.wrapper .Support .Notice {border:1px solid #ccc; background:#eee; border-radius:5px; font-size:0.38cm; padding:0.3em 0.5em; margin:0.5em 0;}
+.wrapper .Support .BetaTag {color:red;}
+.wrapper .Support a {color:#08f; text-decoration:none;} .wrapper .Support a:hover {color:#cc0;text-decoration:underline;}
+.wrapper .Support p {margin:0.5em 0;}
+.wrapper .Support .FAQq {border:1px solid #ccc; background:#fafafa; padding:2px 8px; margin-top:1px; cursor:pointer; line-height:30px;} .wrapper .Support .FAQq:hover {background:#aff; transition:All 0.1s ease-in-out;}
+.wrapper .Support .FAQa {border:1px solid #ccc; border-radius:0 0 0.5em 0.5em; padding:2px 8px; margin-top:1px; margin-bottom:1em; line-height:30px;}
+.wrapper #Download table img {vertical-align:middle;}
+.wrapper #BIOS .Remark, .wrapper #BIOS .RemarkAlert {font-size:13px; color:#a00;}
+@media screen and (max-width:480px) {
+	.wrapper .Support th, .wrapper .Support td{font-size:0.32cm; padding:0;}
+	.wrapper .Support .Notice {font-size:0.32cm;}
+	.wrapper .Support .Remark{font-size:0.3cm;}
+}
+
+.wrapper .leftmenu {margin-top:1em;width:20%; float:left;}
+.wrapper .leftmenu li {border-left:1px solid #ddd; border-bottom:1px solid #f8f8f8; margin-right:1em; }
+.wrapper .leftmenu li a{display:block; margin-left:10px; padding:.5em 0;}
+.wrapper .leftmenu li.current a {color:#fff; margin-left:8px;} .leftmenu li.current {border-left:3px solid #fff;}
+.wrapper .leftmenu li:hover {cursor:pointer; border-left:3px solid #0c0; background:linear-gradient(to right, rgba(50,50,50,0.1) 0%, rgba(0,0,0,0) 100%);} .leftmenu li:hover a {margin-left:8px;}
+
+@media screen and (max-width:480px) {
+	.wrapper .leftmenu {padding-top:1em;border-top:1px solid #ccc; border-bottom:1px solid #ccc; display:none; width:100%; height:100%; background:#f8f8f8; z-index:1;} .wrapper .leftmenu li {border-bottom:1px solid #fff;}
+}
+
+.VideoContainer {text-align:center; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:100%;}
+.VideoContainer iframe, .VideoContainer object, .VideoContainer embed, .VideoContainer img {position:absolute; top:0; left:0; width:100%; height:100%;}
+.VideoContainer .PlayVideo {z-index:5; width:100%; height:100%; position:absolute; background:url('/images/youtube-play.png') no-repeat center; transition:All 0.3s ease-in-out; transform:scale(0.8);}
+.VideoContainer .PlayVideo:hover {transform:scale(1.0);}
+.VideoAqua {background-image:url('/mb/features/videobgAqua.jpg');background-repeat:no-repeat;padding-top:3em;padding-bottom:3em;}
+.VideoTaichi {background-image:url('/mb/features/videobgTaichi.jpg');background-repeat:no-repeat;padding-top:3em;padding-bottom:3em;}
+.VideoGaming {background-image:url('/mb/features/videobgGaming.jpg');background-repeat:no-repeat;padding-top:3em;padding-bottom:3em;}
+.VideoPG {background-image:url('/mb/features/videobgPG.jpg');background-repeat:no-repeat;padding-top:3em;padding-bottom:3em;}
+.VideoKiller {background-image:url('/mb/features/videobgKiller.jpg');background-repeat:no-repeat;padding-top:3em;padding-bottom:3em;}
+.VideoX {background-image:url('/mb/features/videobgX.jpg');background-repeat:no-repeat;padding-top:3em;padding-bottom:3em;}
+.VideoSC {background-image:url('/mb/features/videobgSC.jpg');background-repeat:no-repeat;padding-top:3em;padding-bottom:3em;}
+.VideoSteelLegend {background-image:url('/mb/features/videobgSteelLegend.jpg');background-repeat:no-repeat;padding-top:3em;padding-bottom:3em;}
+
+#statement .Remark {color:#888; font-size:0.36cm; line-height:.5cm; clear:both; padding-top:1em;}
+
+.wide-5 {width:5%;}
+.wide-16, .wide-16-3 {width:16.6%;}
+.wide-20, .wide-20-1, .wide-20-2 {width:20%;}
+.wide-25, .wide-25-1, .wide-25-2, .wide-25-3 {width:25%;}
+.wide-30, .wide-30-1 {width:30%;}
+.wide-33, .wide-33-1, .wide-33-2 {width:33%;}
+.wide-34, .wide-34-1, .wide-34-2 {width:34%;}
+.wide-40, .wide-40-1 {width:40%;}
+.wide-45, .wide-45-1 {width:45%;}
+.wide-50, .wide-50-1 {width:50%;}
+.wide-55, .wide-55-1 {width:55%;}
+.wide-60, .wide-60-1 {width:60%;}
+.wide-65, .wide-65-1 {width:65%;}
+.wide-70, .wide-70-1 {width:70%;}
+.wide-75, .wide-75-1 {width:75%;}
+.wide-80, .wide-80-1 {width:80%;}
+.wide-85, .wide-85-1 {width:85%;}
+.wide-90, .wide-90-1 {width:90%;}
+@media screen and (max-width:1280px) {
+	.wide-25-3 {width:33%;}
+}
+@media screen and (max-width:980px) {
+	.wide-20-2 {width:33%;}
+	.wide-33-1, .wide-34-1 {width:49.8%;}
+}
+@media screen and (max-width:480px) {
+	.wide-16-3 {width:33.3%;}
+	.wide-20-1, .wide-25-1, .wide-30-1, .wide-33-1, .wide-34, .wide-34-1, .wide-40-1, .wide-45-1, .wide-50-1, .wide-55-1, .wide-60-1, .wide-65-1, .wide-70-1, .wide-75-1, .wide-80-1, .wide-85-1, .wide-90-1 {width:100%;}
+	.wide-25-2, .wide-25-3 {width:50%;}
+	.wide-20-2, .wide-33-2, .wide-34-2 {width:49.7%;}
+}
+
+#footer {background:#111; text-align:center; border-top:1px solid #666; padding-top:1.5em; padding-bottom:1.5em;}
+#footer .inner {margin:0 auto; width:1200px; background:#111; }
+#footer .inner li {font-size:10pt; line-height:16pt;}
+#footer .inner li a {color:#888; text-decoration:none; display:block;}
+#footer .inner li a:hover {color:#ff8; text-decoration:underline;}
+#footer .inner h6 {font:bold 13pt tahoma, "Trebuchet MS"; color:#fff; line-height:20pt;}
+#footer .inner .copyright {padding-top:2em; padding-bottom:1em; color:#777; text-shadow:1px 1px #222; font-size:10pt;}
+#footer .inner .copyright a {text-decoration:none; color:#5cc;} #footer .inner .copyright a:hover {color:#ff0; text-decoration:underline;}
+@media screen and (max-width:1200px) {
+	#footer .inner {width:90%;}
+}
+@media screen and (max-width:480px) {
+	#footer .inner {width:100%;}
+	#footer {padding-top:1em; padding-bottom:5em;}
+}
+
+.clear {clear:both;} .clear:after {content: ''; display: block; clear: both;}
+
+.transhover {filter:alpha(opacity=50);-moz-opacity:0.5;opacity:0.5;}
+
+.TransIn {opacity:.9; transition:all .3s ease-in-out;}
+.TransIn:hover {opacity:1; transition:all .2s ease-in-out;box-shadow:1 1 5px rgba(50%, 50%, 50%, 1)}
+.TransOut {opacity:1; transition:all .3s ease-in-out;}
+.TransOut:hover {opacity:.8; transition:all .2s ease-in-out;}
+
+#GoTop {width:60px; height:60px; position:fixed; right:1em; bottom:1em; z-index:10; background:url(/images/arrow.png); display:none; cursor:pointer;}
+
+.Warning {width:100%; border:1px solid #333; border-radius:20px; background:#222; padding:6px;margin-bottom:50%;}
+.Warning .Symbol {border:1px solid #a00;border-radius:50%;background:#f00;width:50px;height:50px;line-height:50px;font-weight:bold;font-size:40px;color:#ff0;text-shadow:1px 1px #300;text-align:center;float:left;}
+.Warning .Contents {padding-left:60px;line-height:50px;}
